@@ -18,7 +18,7 @@ RUN pacman -Sy --noconfirm archlinux-keyring && \
 
 # Install tor
 RUN useradd -m gomasy && \
-    gpasswd -a gomasy wheel
+    gpasswd -a gomasy wheel && \
     sed -ie "s/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers && \
     su -l gomasy -c "yaourt -S chromium tor ttf-koruri --noconfirm" && \
     pacman -Scc --noconfirm
